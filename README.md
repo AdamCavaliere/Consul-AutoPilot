@@ -32,7 +32,8 @@ By utilizing [Consul AutoPilot](https://www.consul.io/docs/guides/autopilot.html
 
 Configure your environment variables:
 
-```export CONSUL_ENT_URL=https://s3.amazonaws.com/binaries-azc/consul-enterprise_1.0.7%2Bent_linux_amd64.zip
+```
+export CONSUL_ENT_URL=https://s3.amazonaws.com/binaries-azc/consul-enterprise_1.0.7%2Bent_linux_amd64.zip
 export CONSUL_VERSION=1.0.7
 ```
 
