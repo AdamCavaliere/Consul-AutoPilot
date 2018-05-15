@@ -3,35 +3,36 @@
 Consul is an integral part of an application environment, and the high availability during an upgrade is an important part of ensuring your applications are not affected. Upgrades may not just be a version change of Consul. If you have adopted an immutable infrastructure approach with your virtual machines, this process will work well for that use case too.
 
 ## Reference Material
-- [https://www.packer.io/downloads.html](Packer for building an image)
+- [Packer for building an image](https://www.packer.io/downloads.html)
 
 ## Estimated Time to Complete
 _30 Minutes_
 
 ## Personas
-_Paragraph describing the personas involved in the challenge and solution._
+A Consul administrator 
 
 ## Challenge
-_Paragraph describing the challenge._
+In this instance, we are rolling images monthly, as part of a patching strategy. To ensure we can upgrade without a problem, we need a way to upgrade, while ensuring there is data convergence. This includes ensuring data convergence has completed, while removing the old servers from the cluster.
 
 ## Solution
-_Paragraph describing the proposed solution._
+By utilizing [Consul AutoPilot](https://www.consul.io/docs/guides/autopilot.html), we take advantage of an automated capability in Consul to bring the new servers into the cluster, allow for them to converge their data, and then automatically remove the old servers from the cluster.
 
 ## Prerequisites
-- Create EC2 Keys in the Regions you will be deploying.
 - Have AWS Access keys ready to go
 
 ## Steps
 
 ## Step 1: Setup your AMI Images
 
-##Build Your AMIs - Consul & Vault
+### Clone a repo:
+
+[Repo to Clone](https://github.com/AdamCavaliere/Consul-AutoPilot)
 
 ### Consul Vault Config:
 
+Configure your environment variables:
+
 ```export CONSUL_ENT_URL=https://s3.amazonaws.com/binaries-azc/consul-enterprise_1.0.7%2Bent_linux_amd64.zip
-export VAULT_ENT_URL=https://s3.amazonaws.com/binaries-azc/vault-enterprise_0.10.1%2Bent_linux_amd64.zip
-export AWS_REGION=us-east-2
 export CONSUL_VERSION=1.0.7
 export VAULT_VERSION=0.10.1```
 
